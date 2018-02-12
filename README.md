@@ -12,7 +12,7 @@ Bootstrap 3 components
 node_modules included
 
 Backend: Clone the repository named Laravel-rest-Vue.js-e-commerce,
-cd Laravel-rest-Vue.js-e-commerce, 
+cd Laravel-rest-Vue.js-e-commerce directory, 
 configure the .env file, change the database connections and mail driver credentials
 
 ``` bash 

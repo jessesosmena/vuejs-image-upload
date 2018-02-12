@@ -11,7 +11,7 @@ Bootstrap 3 components
 
 node_modules included
 
-For Backend Clone the repository named Laravel-rest-Vue.js-e-commerce
+For Backend clone the repository named Laravel-rest-Vue.js-e-commerce
 
 Backend: 
 php 5.6.4
@@ -33,4 +33,4 @@ npm run dev
 npm run build
 ```
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
-# E-Commerce-Web-Application-VueJS-Vuex-
+

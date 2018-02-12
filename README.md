@@ -11,8 +11,20 @@ Bootstrap 3 components
 
 node_modules included
 
-For Backend clone the repository named Laravel-rest-Vue.js-e-commerce
+Backend: Clone the repository named Laravel-rest-Vue.js-e-commerce
+cd Laravel-rest-Vue.js-e-commerce 
+configure the .env file 
+``` bash 
 
+php artisan migrate 
+## used to add new tables, columns, or indexes to your database
+
+php artisan serve 
+## Laravel development server started on http://localhost:8000. Now you can point your browser to http://localhost:8000 and see your application.
+
+Go back to vue's folder open src folder then configure config.js change the apiDomain base url to http://localhost:8000 which is where the laravel development server started. 
+
+``` 
 Backend: 
 php 5.6.4
 laravel/framework 5.4.

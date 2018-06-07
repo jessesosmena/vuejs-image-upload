@@ -2,6 +2,7 @@
 
 ## Build Setup
 
+vuejs frontend
 ``` bash
 # install dependencies
 npm install
@@ -13,9 +14,9 @@ npm run dev
 npm run build
 ```
 
+laravel backend
 ``` bash
 
-laravel_backend
 #used to add new tables, columns, or indexes to your database
 
 php artisan migrate

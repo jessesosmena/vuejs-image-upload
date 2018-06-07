@@ -1,6 +1,4 @@
-# jsvue
-
-> A Vue.js project
+# single page application vuejs
 
 ## Build Setup
 

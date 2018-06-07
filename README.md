@@ -16,12 +16,15 @@ npm run build
 
 laravel backend
 ``` bash
+# install vendor directory 
 
-#used to add new tables, columns, or indexes to your database
+run composer install in your root project folder 
 
-php artisan migrate
+# used to add new tables, columns, or indexes to your database
 
-#Laravel development server started on http://localhost:8000. Now you can point your browser to http://localhost:8000
+php artisan migrate 
+
+# Laravel development server started on http://localhost:8000. Now you can point your browser to http://localhost:8000
 
 php artisan serve
 

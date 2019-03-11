@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'), // absolute path folder
-    publicPath: '/dist/', //essence 
+    publicPath: '', //essence 
     filename: 'build.js'
   },
   module: {

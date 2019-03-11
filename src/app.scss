@@ -1,0 +1,61 @@
+.sidepane {
+  background: #E8E8EA;
+  min-height: 100%;
+  overflow-y: hidden;
+  width: 250px;
+  padding: 15px;
+  margin: 0 auto;
+  position: absolute;
+  .form{
+     height: 80px;
+     margin: 10px 0;
+     .form-control{
+       width: 200px;
+     }
+  }
+    .assets{
+     width: 100%;
+      .text{
+       margin: 10px 0;
+      }
+     .image{
+       margin: 10px 0;
+        ul{
+          width: 50px;
+    		  height: 50px;
+    		  margin-right: 5px;
+    		  float: left;
+    		  overflow: hidden;
+        }
+        li{
+          width: 50px;
+    		  height: 50px;
+    		  margin-right: 5px;
+    		  float: left;
+    		  overflow: hidden;
+        }
+        img{
+          width: 300px;
+          height: 250px;
+        }
+      }
+    }
+   
+    .item{
+       border: 1px solid transparent;
+       position: absolute;
+        .selected{
+          border-color: blue;
+        }
+    } 
+
+    .item.selected{
+      border-color: blue;
+    }
+
+}
+
+#assetText {
+  font-size: 24px;
+}
+

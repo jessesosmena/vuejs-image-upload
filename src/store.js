@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import store from './store/index.js'
+import store from './store/store.js'
 
 Vue.use(Vuex);
 
@@ -10,7 +10,7 @@ const debug = process.env.NODE_ENV !== 'production';
 export default new Vuex.Store({
 
 	modules: {
-	 store
+		store
 	},
 
 	strict: debug // if NODE_ENV is not equal to production

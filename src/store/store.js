@@ -1,46 +1,42 @@
 const state = {
-    userData: null,
-    isVerified: null
+    images: null,
+    text: null
 }
 
 const mutations = {
-  setToken (state, payload){
-    return state.userData = payload;
+  setImage (state, payload){
+    return state.images = payload;
   },
 
-  isVerified (state, payload){
-    return state.isVerified = payload;
+  unsetImage (state){
+    return state.images = null;
   },
 
-  unsetToken (state){
-    return state.userData = null;
+  setText (state, payload){
+    return state.text = payload;
   },
 
-
-  unsetId (state){
-    return state.isVerified = null;
+  unsetText (state){
+    return state.text = null;
   }
-
 }
 
 const actions = {
-  setToken({commit}, payload) {
-    commit('setToken', payload)
+  setImage({commit}, payload) {
+    commit('setImage', payload)
   },
 
-  isVerified({commit}, payload) {
-    commit('isVerified', payload)
+  setText({commit}, payload) {
+    commit('setText', payload)
   },
 
-  unsetToken({commit}) {
-    commit('unsetToken')
+  unsetImage({commit}) {
+    commit('unsetImage')
   },
 
-
-  unsetId({commit}) {
-    commit('unsetId')
+  unsetText({commit}) {
+    commit('unsetText')
   }
-
 }
 
 export default {

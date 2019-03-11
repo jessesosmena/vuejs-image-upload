@@ -1,68 +1,143 @@
 <template>
     <div>
-	    <div class="container">
+         <!-- side pane -->
+      <div class="sidepane">
+        <form class="form" enctype="multipart/form-data" @submit.prevent="createImg">
+          <h3>Image</h3>
 
-        <div v-if="store.isVerified == 0" class="col-lg-12
-        alert alert-success"><button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>A verification email was sent to {{store.client.email}}. Please verify your email to activate admin panel</div>
+            <input 
+            type="file" 
+            class="form-control" 
+            placeholder="Upload Your Images" 
+            name="upload" 
+            @change="onFileChange"
+            required>
+          <!-- Upload Form here -->
 
-		    <products></products>
-	    </div>
-    </div>
+        <div class="assets">
+          <h3>Name</h3>
+
+          <div class="text">
+              <input 
+              type="text" 
+              class="form-control" 
+              v-model="images.text" 
+              placeholder="Enter Text"
+              required>
+              <br/>
+              <div class="text-danger" 
+                v-show="errors.has('text')">
+                {{ errors.first('text') }}
+              </div>
+              
+              <button id="addText" class="btn btn-success btn-md">Submit</button>
+          </div>
+
+          <div class="image">
+              <h4>Images</h4>
+                  <user 
+                   v-for="user in clientImgs" 
+                   :key="user.id"
+                   :user="user">
+                  </user>
+              <ul class="list-unstyled">
+                  <li>
+                  </li>
+              </ul>
+          </div>
+
+        </div>
+
+        </form>
+      </div>
+      <!-- canvas v-for = loop over each images in the clientImgs array -->
+      <div class="canvas col-sm-8 col-md-8 col-lg-8">
+          <div class="block">
+            <client
+               v-for="client in clientImgs" 
+               @delete-image="deleteImage(client)"
+               :key="client.id"
+               :client="client">
+            </client>
+          </div>
+      </div>
+  </div>
+
 </template>
 
 <script>
-import { apiDomain } from '../config.js';
-import Products from './product/Products.vue';
-import { mapState } from 'vuex';
+import Client from './Client.vue'
+import User from './User.vue'
 
 export default {
 
-	  computed: mapState({
-       store: state => state.store
-    }),
-    
-    components: {
-       'products': Products
+ 
+  data () {
+    return {
+        images: {
+          image: '',
+          text: ''
+        },
+        clientImgs: []
+    }
+  },
+
+  components: {
+
+      'client': Client,
+
+      'user': User
+  },
+
+  methods: {
+
+    deleteImage (client) {
+        this.$http.delete('https://arcane-chamber-27790.herokuapp.com/api/image/' + client.id)
+          .then(response => {
+              let index = this.clientImgs.indexOf(client) // image id in the clientImgs array
+              this.clientImgs.splice(index, 1) // delete index images 1 item 
+              console.log(response)
+          })
     },
 
-    created () {
+    onFileChange: function(e) {
+        let files = e.target.files || e.dataTransfer.files;
+        if (!files.length)
+            return;
+        this.createImage(files[0]);
+    },
 
-        this.$store.dispatch('setToken', JSON.parse(window.localStorage.getItem('token')))
-        this.$store.dispatch('setClient', JSON.parse(window.localStorage.getItem('client')));
-        this.$store.dispatch('isVerified', JSON.parse(window.localStorage.getItem('verified')));
+    createImage(file) {
+        let reader = new FileReader();
+        reader.readAsDataURL(file); //Starts reading the contents of the specified Blob, once finished, the result attribute below contains a data: URL representing the file's data.
+        reader.onload = (e) => {
+            this.images.image = e.target.result;
+        };
+    },
 
-        let expires_in
-        if(this.$store.state.store.token){
-          expires_in = this.$store.state.store.token.expires_in
-        }
-       
-        if(Date.now() > expires_in){
-          window.localStorage.removeItem('token');
-          window.localStorage.removeItem('client');
-          window.localStorage.removeItem('verified');
-
-          this.$store.dispatch('unsetToken');
-          this.$store.dispatch('unsetId');
-          this.$router.push('/');
-        }
-
-        const products = {}
-
-        this.$http.get(apiDomain + '/api/products')
-          .then(response => {
-           this.$store.dispatch('setProducts', response.body);
-        })
+    createImg () {
+      this.$validator.validateAll().then(() => { // validates all input data
+          this.$http.post('https://arcane-chamber-27790.herokuapp.com/api/image', this.images)
+            .then(response => {
+              console.log(response)
+              window.location.reload()
+          })
+      })
     }
+  },
+  
+  //created => life cycle hook invoked immediately right after the component is mounted 
+  created () {
+    this.$http.get('https://arcane-chamber-27790.herokuapp.com/api/image')
+      .then(response => {
+        this.clientImgs = response.data
+    })
+  }
+
 }
+
 </script>
 
-<style>
-
-.alert {
-  font-size: 16px;
-  font-family: 'Roboto', sans-serif;
-}
-
+<style lang="scss" scoped>
+  @import "../app.scss"
 </style>

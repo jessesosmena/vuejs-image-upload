@@ -1,6 +1,6 @@
 # A Vue.js image uploader
 
-![alt text](https://github.com/jessejayjustin/image-upload-vue.js/blob/master/images/Image%20Upload%20VueJS.png
+![alt text](https://github.com/jessejayjustin/image-upload-vue.js/blob/master/images/Image%20Uploader%20Vuejs.png
 )
 
 ## Build Setup
@@ -34,5 +34,5 @@ node server.js
 ## api hosted at heroku, use this url or create your own
 
 ```
- https://arcane-chamber-27790.herokuapp.com/ 
+https://arcane-chamber-27790.herokuapp.com/ 
 ```

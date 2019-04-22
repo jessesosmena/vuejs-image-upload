@@ -1,6 +1,6 @@
 {
-  "name": "jsvue",
-  "description": "A Vue.js project",
+  "name": "vue.js",
+  "description": "A Vue.js image uploader",
   "version": "1.0.0",
   "author": "Jesse Jay",
   "private": true,

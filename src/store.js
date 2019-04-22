@@ -13,5 +13,5 @@ export default new Vuex.Store({
 		store
 	},
 
-	strict: debug // if NODE_ENV is not equal to production
+	strict: debug 
 });

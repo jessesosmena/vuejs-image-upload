@@ -34,5 +34,5 @@ node server.js
 ## api hosted at heroku, use this url or create your own
 
 ```
-## https://arcane-chamber-27790.herokuapp.com/ ## 
+ https://arcane-chamber-27790.herokuapp.com/ 
 ```

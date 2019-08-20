@@ -1,4 +1,4 @@
-# A Vue.js image uploader
+# A Vuejs image upload
 
 ![alt text](https://github.com/jessejayjustin/image-upload-vue.js/blob/master/images/Image%20Uploader%20Vuejs.png
 )
